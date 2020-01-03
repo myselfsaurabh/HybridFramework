@@ -8,7 +8,7 @@ import com.CRM.utilities.Constants;
 import com.CRM.utilities.TestRunManager;
 import com.CRM.utilities.ExcelReader;
 
-public class DataProviderClass {
+public class DataProviders {
 
 	 
 	@DataProvider(name="masterDP",parallel=true)

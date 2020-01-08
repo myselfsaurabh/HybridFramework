@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="com.CRM.ExtentListener.ExtentListeners"/>
+  </listeners>
+  <test thread-count="5" name="Test1(failed)">
+    <classes>
+      <class name="com.CRM.TestCases.CRMLogInTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setExtent"/>
+          <include name="crmLogInTest" invocation-numbers="0"/>
+          <include name="setUpFramework"/>
+        </methods>
+      </class> <!-- com.CRM.TestCases.CRMLogInTest -->
+    </classes>
+  </test> <!-- Test1(failed) -->
+</suite> <!-- Failed suite [Suite] -->

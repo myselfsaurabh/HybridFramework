@@ -183,7 +183,6 @@ public class TestBase {
 		e_driver.register(eventListener);
 		driver = e_driver;
 		DriverManager.setWebDriver(driver);
-		DriverManager.getDriver().get("");
 		log.info("Driver Initialized !!!");
 		DriverManager.getDriver().manage().window().maximize();
 		DriverManager.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

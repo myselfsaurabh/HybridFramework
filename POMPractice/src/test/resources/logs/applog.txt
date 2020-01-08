@@ -1,0 +1,3 @@
+INFO    2020-01-08 17:50:34,503 [TestNG-PoolService-0] com.CRM.TestBase.TestBase  - Inside Login Test
+INFO    2020-01-08 17:50:38,350 [TestNG-PoolService-0] com.CRM.TestBase.TestBase  - Driver Initialized !!!
+INFO    2020-01-08 17:50:46,558 [TestNG-PoolService-0] com.CRM.TestBase.TestBase  - Test Execution Completed !!!

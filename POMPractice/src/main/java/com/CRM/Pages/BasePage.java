@@ -29,8 +29,8 @@ public abstract class BasePage <T> {
 			AjaxElementLocatorFactory ajaxElemFactory = new AjaxElementLocatorFactory(driver, AJAX_ELEMENT_TIMEOUT);
 			page = PageFactory.initElements(driver, clazz);
 			PageFactory.initElements(ajaxElemFactory, page);
-			ExpectedCondition pageLoadCondition = ((BasePage) page).getPageLoadCondition();
-			waitForPageToLoad(pageLoadCondition);
+		//	ExpectedCondition pageLoadCondition = ((BasePage) page).getPageLoadCondition();
+			//waitForPageToLoad(pageLoadCondition);
 		} catch (NoSuchElementException e) {
 			/*
 			 * String error_screenshot = System.getProperty("user.dir") +
@@ -61,7 +61,6 @@ public abstract class BasePage <T> {
 		ExtentListeners.testReport.get().info("Typing in : " + elementName + " entered the value as : " + value);
 
 	}
-
 
 
 }

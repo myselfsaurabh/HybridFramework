@@ -16,11 +16,14 @@ public class CRMLogInPage extends BasePage {
 	@FindBy(xpath = "//div[@class='ui fluid large blue submit button']")
 	public WebElement signin;
 	
-	public CRMLogInPage doLoginAsInvalidUser(String username, String password) {
+	public CRMLogInPage doLoginAsInvalidUser(String username, String password) throws InterruptedException {
 
 		type(email, username, "Username textbox");
+		Thread.sleep(4000);
 		type(pass, password, "Password textbox");
+		Thread.sleep(4000);
 		click(signin, "Sign in Button");
+		Thread.sleep(4000);
 
 		return this;
 

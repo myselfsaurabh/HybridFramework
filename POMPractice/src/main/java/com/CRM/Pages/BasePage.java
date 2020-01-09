@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.CRM.ExtentListener.ExtentListeners;
 import com.CRM.utilities.DriverManager;
 
-public abstract class BasePage <T> {
+public abstract class BasePage<T> {
 
 	protected WebDriver driver;
 
@@ -29,7 +29,7 @@ public abstract class BasePage <T> {
 			AjaxElementLocatorFactory ajaxElemFactory = new AjaxElementLocatorFactory(driver, AJAX_ELEMENT_TIMEOUT);
 			page = PageFactory.initElements(driver, clazz);
 			PageFactory.initElements(ajaxElemFactory, page);
-		//	ExpectedCondition pageLoadCondition = ((BasePage) page).getPageLoadCondition();
+			//ExpectedCondition pageLoadCondition = ((BasePage) page).getPageLoadCondition();
 			//waitForPageToLoad(pageLoadCondition);
 		} catch (NoSuchElementException e) {
 			/*
@@ -61,6 +61,5 @@ public abstract class BasePage <T> {
 		ExtentListeners.testReport.get().info("Typing in : " + elementName + " entered the value as : " + value);
 
 	}
-
 
 }

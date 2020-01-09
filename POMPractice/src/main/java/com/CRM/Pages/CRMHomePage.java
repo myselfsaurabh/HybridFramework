@@ -16,7 +16,7 @@ public class CRMHomePage extends BasePage {
 
 	
 	public CRMHomePage open(String url) {
-		DriverManager.getDriver().get(url);
+		DriverManager.getDriver().navigate().to(url);
 		return (CRMHomePage) openPage(CRMHomePage.class);
 		
 	}
@@ -26,6 +26,8 @@ public class CRMHomePage extends BasePage {
 		return (CRMLogInPage) openPage(CRMLogInPage.class);
 			
 	}
+
+	
 	@Override
 	protected ExpectedCondition getPageLoadCondition() {
 		// TODO Auto-generated method stub

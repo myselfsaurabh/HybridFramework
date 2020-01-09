@@ -16,7 +16,7 @@ import com.CRM.utilities.ExcelReader;
 public class CRMLogInTest extends TestBase {
 	
 	@Test(dataProviderClass=DataProviders.class,dataProvider="masterDP")
-	public void crmLogInTest(Hashtable<String,String> data) {
+	public void crmLogInTest(Hashtable<String,String> data) throws InterruptedException {
 		ExcelReader excel = new ExcelReader(Constants.SUITE1_XL_PATH);
 		System.out.println(this.getClass().getSimpleName());
 		TestRunManager.checkExecution("master", "LoginTest", data.get("Runmode"), excel);

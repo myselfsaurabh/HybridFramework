@@ -1,11 +1,14 @@
 package com.CRM.Pages;
 
+import java.util.List;
+
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.CRM.ExtentListener.ExtentListeners;
@@ -25,18 +28,14 @@ public abstract class BasePage<T> {
 	public T openPage(Class<T> clazz) {
 		T page = null;
 		try {
-			driver = DriverManager.getDriver();
+
 			AjaxElementLocatorFactory ajaxElemFactory = new AjaxElementLocatorFactory(driver, AJAX_ELEMENT_TIMEOUT);
 			page = PageFactory.initElements(driver, clazz);
 			PageFactory.initElements(ajaxElemFactory, page);
-			//ExpectedCondition pageLoadCondition = ((BasePage) page).getPageLoadCondition();
-			//waitForPageToLoad(pageLoadCondition);
+			ExpectedCondition pageLoadCondition = ((BasePage) page).getPageLoadCondition();
+			waitForPageToLoad(pageLoadCondition);
 		} catch (NoSuchElementException e) {
-			/*
-			 * String error_screenshot = System.getProperty("user.dir") +
-			 * "\\target\\screenshots\\" + clazz.getSimpleName() + "_error.png";
-			 * this.takeScreenShot(error_screenshot);
-			 */ throw new IllegalStateException(String.format("This is not the %s page", clazz.getSimpleName()));
+			throw new IllegalStateException(String.format("This is not the %s page", clazz.getSimpleName()));
 		}
 		return page;
 	}
@@ -56,10 +55,21 @@ public abstract class BasePage<T> {
 	}
 
 	public void type(WebElement element, String value, String elementName) {
-
 		element.sendKeys(value);
 		ExtentListeners.testReport.get().info("Typing in : " + elementName + " entered the value as : " + value);
 
+	}
+
+	public void select(WebElement element, String value) {
+
+		Select selVal = new Select(element);
+		List<WebElement> options = selVal.getOptions();
+		for (WebElement Option : options) {
+			if (Option.getText().equalsIgnoreCase(value)) {
+				Option.click();
+			}
+		}
+		selVal = null;
 	}
 
 }

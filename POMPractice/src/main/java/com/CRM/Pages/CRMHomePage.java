@@ -1,5 +1,6 @@
 package com.CRM.Pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -11,12 +12,13 @@ import com.CRM.utilities.DriverManager;
 
 public class CRMHomePage extends BasePage {
 	
+	
 	@FindBy(xpath="//div[@class='ui fluid large blue submit button']")
 	public WebElement logIn;
 
 	
-	public CRMHomePage open(String url) {
-		DriverManager.getDriver().navigate().to(url);
+	public CRMHomePage open(String rsurl) {
+	  DriverManager.getDriver().navigate().to(rsurl);
 		return (CRMHomePage) openPage(CRMHomePage.class);
 		
 	}
